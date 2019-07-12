@@ -20,9 +20,9 @@
 #include <math.h>
 
 
-#define R_W2V  				6423
-#define C_W2V  				300
-#define VocabularySize		6423
+#define R_W2V  		    6423
+#define C_W2V  		    300
+#define VocabularySize	    6423
 #define MAX_THREADS         300
 
 
@@ -63,9 +63,9 @@ int main (int argc, char *argv[])
 
 	if (argc!=5 )
 	{
-	   fprintf(stdout,"Wrong number of parameters.\n");
-       fprintf(stdout,"parameters must be given as: 'threads=' value,'hists_num=' value,'hist_len=' value,'hist=' value");
-       exit(1);
+	   	fprintf(stdout,"Wrong number of parameters.\n");
+       		fprintf(stdout,"parameters must be given as: 'threads=' value,'hists_num=' value,'hist_len=' value,'hist=' value");
+       		exit(1);
    	}
 
 	printf("Number of init_arg: %d\n", argc);
@@ -154,14 +154,14 @@ int main (int argc, char *argv[])
 			return -1;
 		}
 	}
-	threads_num =malloc(sizeof(unsigned int));
-	hists_num =malloc(sizeof(unsigned int));
-	hist_len =malloc(sizeof(unsigned int));
+	threads_num = malloc(sizeof(unsigned int));
+	hists_num = malloc(sizeof(unsigned int));
+	hist_len = malloc(sizeof(unsigned int));
 
 	*threads_num = init_arg [0];
 	*hists_num   = init_arg [1];
 	*hist_len    = init_arg [2];
-	 hist1		 = init_arg [3];
+	 hist1       = init_arg [3];
 
 	fprintf(stdout,"threads_num= %u \t hists_num=%u \t hist_len=%u \t hist=%u \n", *threads_num, *hists_num, *hist_len,hist1);
 
@@ -208,14 +208,14 @@ int main (int argc, char *argv[])
 	fclose( bows_file );
 
 	/***************************************************************/
-				/*start threads and compute rwmd*/
+	      /*start threads and compute rwmd*/
 	/***************************************************************/
 	min_dpT    =  malloc ( sizeof ( unsigned int ));
 	add_docT   =  malloc ( sizeof ( unsigned int ));
 	* min_dpT  =  *hists_num / *threads_num;
 	* add_docT =  *hists_num % *threads_num;
 
-	/*allocate memory for gd,gdcounter,rwmd*/
+	/* allocate memory for gd,gdcounter,rwmd */
 
 	gdcounter  = malloc (( * hists_num + 1) * sizeof ( unsigned int ));
 	rwmd       = malloc (( * hists_num )* sizeof( float ));
